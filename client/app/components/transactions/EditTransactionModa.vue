@@ -47,7 +47,7 @@ const onSubmit = () => {
   }
 
   try {
-    transactionStore.updateTransactionById(Number(props.id), Number(amount));
+    transactionStore.updateTransactionById(Number(props.id), amount.value);
     close();
   } catch (error: any) {
     alert(error.message);

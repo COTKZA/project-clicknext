@@ -73,13 +73,20 @@ export const useTransactionStore = defineStore("transactions", {
     },
 
     updateTransactionById(id: number, amount: number) {
+      // validate amount
+      if (amount < 0 || amount > 100000) {
+        throw new Error("จำนวนเงินต้องอยู่ระหว่าง 0 - 100,000 บาท");
+      }
+
       const transaction = this.data.find((item) => item.id === id);
 
       if (!transaction) {
         throw new Error("ไม่พบ Id ของ Transaction");
       }
 
-      transaction.amount -= amount
+      // cal
+      const CalBalance = amount - transaction.amount;
+      transaction.amount = this.balance + CalBalance;
     },
 
     // delete
