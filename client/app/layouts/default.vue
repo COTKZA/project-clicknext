@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { ref } from "vue"
+
 import Navbar from "~/components/layouts/Navbar.vue";
 import Sidebar from "~/components/layouts/Sidebar.vue";
 
