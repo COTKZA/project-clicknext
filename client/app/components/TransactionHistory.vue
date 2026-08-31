@@ -1,7 +1,10 @@
 <script setup>
+import { useTransactionStore } from '~/stores/transactions.ts';
 import DeleteTransactionModal from './transactions/DeleteTransactionModal.vue';
 import EditTransactionModa from './transactions/EditTransactionModa.vue';
 
+// fetch Transaction
+const transactionsStore = useTransactionStore();
 
 const modalRef = ref(null);
 
@@ -28,41 +31,30 @@ const openDeleteTransactionModal = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="border-b border-gray-800">
-                        <td class="px-3 py-2 border border-gray-800">
-                            06/06/2022 10:19:53
-                        </td>
-                        <td class="px-3 py-2 border border-gray-800">
-                            20,000
-                        </td>
-                        <td class="px-3 py-2 border border-gray-800">
-                            <span class="text-green-500">ฝาก</span>
-                        </td>
-                        <td class="px-3 py-2 border border-gray-800">
-                            test@test.com
-                        </td>
-                        <td class="px-3 py-2 border border-gray-800">
-                            <button @click="openEditTransactionModal" type="button" class="bg-[#4d4d4d] text-white px-4 py-1.5 rounded-md font-medium">
-                                Edit
-                            </button>
+                    <tr v-if="transactionsStore.data.length === 0">
+                        <td colspan="5" class="px-3 py-6 text-center text-gray-500">
+                            ไม่มีรายการฝาก/ถอน
                         </td>
                     </tr>
-                    <tr class="border-b border-gray-800">
+                    <tr v-for="item in transactionsStore.data" :key="item.id" class="border-b border-gray-800">
                         <td class="px-3 py-2 border border-gray-800">
-                            06/06/2022 10:19:53
+                            {{ item.dateTime }}
                         </td>
                         <td class="px-3 py-2 border border-gray-800">
-                            20,000
+                            {{ item.amount }}
                         </td>
                         <td class="px-3 py-2 border border-gray-800">
-                            <span class="text-red-500">ถอน</span>
+                            <span :class="item.status === 'deposit' ? 'text-green-500' : 'text-red-500'">
+                                {{ item.status === "deposit" ? "ฝาก" : "ถอน" }}
+                            </span>
                         </td>
                         <td class="px-3 py-2 border border-gray-800">
-                            test@test.com
+                            {{ item.email }}
                         </td>
                         <td class="px-3 py-2 border border-gray-800">
-                            <button type="button" @click="openDeleteTransactionModal" class="bg-[#4d4d4d] text-white px-4 py-1.5 rounded-md font-medium">
-                                Delete
+                            <button @click="openEditTransactionModal" type="button"
+                                class="bg-[#4d4d4d] text-white px-4 py-1.5 rounded-md font-medium">
+                                Edit
                             </button>
                         </td>
                     </tr>
@@ -70,12 +62,13 @@ const openDeleteTransactionModal = () => {
             </table>
         </div>
 
-        <div class="flex items-center gap-1 font-medium text-gray-900 mt-1">
-            แสดง <span> 1 ถึง 3</span> จาก <span>3</span> รายการ
+        <div v-if="transactionsStore.data.length > 0" class="flex items-center gap-1 font-medium text-gray-900 mt-1">
+            แสดง <span> 1 ถึง {{ transactionsStore.data.length }}</span> จาก <span>{{ transactionsStore.data.length
+                }}</span> รายการ
         </div>
     </div>
 
     <EditTransactionModa ref="modalRef" />
 
-    <DeleteTransactionModal ref="modalRef"/>
+    <DeleteTransactionModal ref="modalRef" />
 </template>
