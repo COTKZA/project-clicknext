@@ -1,5 +1,5 @@
 <script setup>
-import Transactions from '~/components/Transactions.vue';
+import TransactionHistory from '~/components/TransactionHistory.vue';
 
 definePageMeta({
   layout: "default",
@@ -7,5 +7,5 @@ definePageMeta({
 </script>
 
 <template>
-  <Transactions />
+  <TransactionHistory />
 </template>

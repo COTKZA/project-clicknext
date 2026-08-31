@@ -13,8 +13,8 @@ const showSidebar = ref(false);
 
     <div class="flex">
       <Sidebar :show="showSidebar" @closeSideBar="showSidebar = false" />
-      <main class="flex-1">
-        <div class="flex items-center justify-center p-10">
+      <main class="flex-1 min-w-0">
+        <div class="p-10">
           <slot />
         </div>
       </main>

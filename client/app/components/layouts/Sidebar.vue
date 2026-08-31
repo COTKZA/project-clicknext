@@ -45,7 +45,6 @@ const emit = defineEmits(["closeSideBar"]);
       </nav>
 
       <!-- button close -->
-
       <button
         type="button"
         class="p-10 mt-auto font-medium text-gray-900 block sm:hidden"

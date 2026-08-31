@@ -25,15 +25,15 @@ const handleInputAmount = (e) => {
 </script>
 
 <template>
-    <div>
+    <div class="flex flex-col items-center justify-center">
         <div class="flex items-center justify-center">
             <span class="text-gray-900 font-medium">
                 จำนวนเงินคงเหลือ 1,000,000 บาท
             </span>
         </div>
 
-        <div class="mt-5 px-4">
-            <form action="">
+        <div class="mt-5 px-4 w-full">
+            <form action="" class="w-full max-w-52 mx-auto">
                 <label for="amount" class="block mb-2 text-sm font-medium text-gray-900">
                     จำนวนเงิน *
                 </label>
