@@ -3,6 +3,7 @@ definePageMeta({
   layout: "default",
 });
 </script>
+
 <template>
-    <DepositWithdraw />
+  <div>transaction</div>
 </template>

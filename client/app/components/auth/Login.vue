@@ -13,7 +13,7 @@
             type="email"
             name="email"
             id="email"
-            class="bg-gray-50 border-2 border-gray-300 text-gray-900 rounded-lg focus:ring-gray-200 focus:border-gray-200 block w-full p-2"
+            class="bg-white border-2 border-gray-300 text-gray-900 focus:outline-none rounded-lg focus:ring-gray-200 focus:border-gray-400 block w-full p-2"
             placeholder="Email"
             required
           />
@@ -29,7 +29,7 @@
             type="password"
             name="password"
             id="password"
-            class="bg-gray-50 border-2 border-gray-300 text-gray-900 rounded-lg focus:ring-gray-200 focus:border-gray-200 block w-full p-2"
+            class="bg-white border-2 border-gray-300 text-gray-900 focus:outline-none rounded-lg focus:ring-gray-200 focus:border-gray-400 block w-full p-2"
             placeholder="Password"
             required
           />
