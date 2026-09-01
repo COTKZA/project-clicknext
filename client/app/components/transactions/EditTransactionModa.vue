@@ -32,6 +32,7 @@ defineExpose({ open, close });
 // validate amount
 const handleInputAmount = () => {
   const value = parseFloat(amount.value);
+
   if (value > 100000) {
     alert("โดยสามารถกรอกได้เฉพาะตัวเลข ไม่เกิน 0-100,000 บาท");
     return;
@@ -87,11 +88,11 @@ const onSubmit = () => {
               name="amount"
               id="amount"
               v-model.number="amount"
-              min="1"
+              min="0"
               max="100000"
-              step="1"
+              step="0.01"
               inputmode="decimal"
-              pattern="[0-9]"
+              pattern="/^[0-9]+$/"
               @input="handleInputAmount"
               class="bg-white border-2 border-gray-300 text-gray-900 rounded-lg focus:outline-none focus:ring-gray-200 focus:border-gray-400 block w-full p-1"
               placeholder="กรอกจำนวนเงิน"

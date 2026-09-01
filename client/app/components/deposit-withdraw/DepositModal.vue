@@ -23,8 +23,7 @@ const transactionStore = useTransactionStore();
 const onSubmit = () => {
   if (!props.amount) return;
   try {
-    transactionStore.addTransaction("deposit", props.amount, props.email);
-
+    transactionStore.addDeposit("deposit", props.amount, props.email);
     close();
   } catch (error: any) {
     alert(error.message);
