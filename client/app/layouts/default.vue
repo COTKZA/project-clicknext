@@ -1,14 +1,28 @@
-<script setup lang="ts">
-import { ref } from "vue"
+<script setup>
+import { ref, onMounted } from "vue";
+import { useRouter } from "vue-router";
 
 import Navbar from "~/components/layouts/Navbar.vue";
 import Sidebar from "~/components/layouts/Sidebar.vue";
+
+const router = useRouter();
+const isAuthenticated = ref(null);
+
+onMounted(() => {
+  const token = localStorage.getItem("authToken");
+  if (token) {
+    isAuthenticated.value = true;
+  } else {
+    isAuthenticated.value = false;
+    router.push("/auth/login");
+  }
+});
 
 const showSidebar = ref(false);
 </script>
 
 <template>
-  <div class="min-h-screen bg-white">
+  <div v-if="isAuthenticated" class="min-h-screen bg-white">
     <Navbar @openSideBar="showSidebar = true" />
 
     <div class="flex">
@@ -19,5 +33,9 @@ const showSidebar = ref(false);
         </div>
       </main>
     </div>
+  </div>
+
+  <div v-else class="flex items-center justify-center h-screen">
+    <p class="text-yellow-500">...Loading...</p>
   </div>
 </template>

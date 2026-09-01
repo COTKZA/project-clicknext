@@ -23,7 +23,7 @@ const transactionStore = useTransactionStore();
 const onSubmit = () => {
   if (!props.amount) return;
   try {
-    transactionStore.addWithdraw("withdraw", props.amount, props.email);
+    transactionStore.addWithdraw("withdraw", props.amount, String(props.email));
 
     close();
   } catch (error: any) {
