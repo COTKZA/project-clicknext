@@ -25,7 +25,6 @@ export default {
         if (data.statusCode === 200) {
           // Set the token in local storage
           localStorage.setItem("authToken", data.body.token);
-          localStorage.setItem("email", this.Email);
           alert("Login is successful");
           this.$router.push("/deposit-withdraw");
         } else {
