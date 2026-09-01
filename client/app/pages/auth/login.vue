@@ -1,5 +1,5 @@
 <script setup>
-import Login from "~/components/auth/Login.vue";
+import LoginForm from "~/components/auth/LoginForm.vue";
 
 definePageMeta({
   layout: "auth",
@@ -7,5 +7,5 @@ definePageMeta({
 </script>
 
 <template>
-  <Login />
+  <LoginForm />
 </template>

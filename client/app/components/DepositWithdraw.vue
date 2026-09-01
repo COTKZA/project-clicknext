@@ -4,10 +4,12 @@ import DepositModal from "./deposit-withdraw/DepositModal.vue";
 import WithdrawModal from "./deposit-withdraw/WithdrawModal.vue";
 import { useTransactionStore } from "~/stores/transactions.ts";
 
-const email = "admin@gmail.com";
+const { getEmail } = useAuth();
 
 // fech balance
 const transactionStore = useTransactionStore();
+
+const email = String(getEmail());
 
 const DepositmodalRef = ref<any>(null);
 const WithdrawmodalRef = ref<any>(null);

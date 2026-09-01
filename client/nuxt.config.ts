@@ -8,7 +8,6 @@ export default defineNuxtConfig({
   vite: {
     plugins: [tailwindcss()],
   },
-
   modules: ["@pinia/nuxt", "nuxt-lucide-icons"],
   pinia: {
     storesDirs: ["./app/stores/**"],
