@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { Menu } from "@lucide/vue";
 
 const emit = defineEmits(["openSideBar"]);
