@@ -41,9 +41,9 @@ export default {
 </script>
 
 <template>
-  <div class="w-full bg-white rounded-lg shadow sm:max-w-md">
+  <div class="w-full sm:max-w-md">
     <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
-      <h1 class="font-bold text-center text-xl text-gray-900">Login</h1>
+      <!-- <h1 class="font-bold text-center text-xl text-gray-900">Login</h1> -->
       <form @submit.prevent="signIn" class="space-y-4">
         <div>
           <label
