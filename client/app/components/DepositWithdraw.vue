@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { ref } from "vue";
 import DepositModal from "./deposit-withdraw/DepositModal.vue";
 import WithdrawModal from "./deposit-withdraw/WithdrawModal.vue";
@@ -9,8 +9,8 @@ const email = "admin@gmail.com";
 // fech balance
 const transactionStore = useTransactionStore();
 
-const DepositmodalRef = ref(null);
-const WithdrawmodalRef = ref(null);
+const DepositmodalRef = ref<any>(null);
+const WithdrawmodalRef = ref<any>(null);
 
 const amount = ref();
 
@@ -33,7 +33,7 @@ const openWithdrawModal = () => {
 };
 
 // validate amount
-const handleInputAmount = (e) => {
+const handleInputAmount = (e: any) => {
   const value = parseFloat(e.target.value);
 
   if (value > 100000) {
@@ -48,12 +48,7 @@ const handleInputAmount = (e) => {
     <div class="flex items-center justify-center">
       <span class="text-gray-900 font-medium">
         จำนวนเงินคงเหลือ
-        {{
-          transactionStore.balance.toLocaleString({
-            style: "currency",
-            currency: "THB",
-          })
-        }}
+        {{ formatAmount(transactionStore.balance) }}
         บาท
       </span>
     </div>

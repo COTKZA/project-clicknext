@@ -43,9 +43,7 @@ const onSubmit = () => {
 
         <span class="text-md font-medium"
           >จำนวนเงิน
-          {{
-            props.amount.toLocaleString({ style: "currency", currency: "THB" })
-          }}
+          {{ formatAmount(props.amount) }}
           บาท</span
         >
 

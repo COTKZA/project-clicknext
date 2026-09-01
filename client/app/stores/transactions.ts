@@ -40,7 +40,7 @@ export const useTransactionStore = defineStore("transactions", {
 
       const transaction: Transaction = {
         id: this.data.length + 1,
-        dateTime: new Date().toLocaleDateString("th-TH", {
+        dateTime: new Date().toLocaleDateString("en-GB", {
           day: "numeric",
           month: "numeric",
           year: "numeric",
@@ -71,7 +71,7 @@ export const useTransactionStore = defineStore("transactions", {
 
       const transaction: Transaction = {
         id: this.data.length + 1,
-        dateTime: new Date().toLocaleDateString("th-TH", {
+        dateTime: new Date().toLocaleDateString("en-GB", {
           day: "numeric",
           month: "numeric",
           year: "numeric",
@@ -114,7 +114,7 @@ export const useTransactionStore = defineStore("transactions", {
         throw new Error("ยอกเงินคงเหลือไม่เพียงพอ");
       }
 
-      // cal
+      // update
       transaction.amount = amount;
     },
 

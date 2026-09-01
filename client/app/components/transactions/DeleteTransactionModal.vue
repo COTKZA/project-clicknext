@@ -30,7 +30,7 @@ defineExpose({ open, close });
 
 // delete trabsaction by id
 const onSubmit = () => {
-  if(!props.id) return;
+  if (!props.id) return;
 
   try {
     transactionStore.deleteTransaction(Number(props.id));
@@ -53,7 +53,11 @@ const onSubmit = () => {
         <form @submit.prevent="onSubmit">
           <div class="flex flex-col">
             <span class="text-md font-medium"
-              >จำนวนเงินถอน {{ transactionById?.amount }} บาท</span
+              >จำนวนเงินถอน
+              {{
+                formatAmount(transactionById?.amount)
+              }}
+              บาท</span
             >
             <span class="text-md font-medium"
               >ของวันที่ {{ transactionById?.dateTime }}</span
