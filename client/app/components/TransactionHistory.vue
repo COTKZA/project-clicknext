@@ -67,7 +67,7 @@ const openDeleteTransactionModal = async (id: number) => {
               {{ item.dateTime }}
             </td>
             <td class="px-3 py-2 border border-gray-800">
-              {{ item.amount }}
+              {{ formatAmount(item.amount) }}
             </td>
             <td class="px-3 py-2 border border-gray-800">
               <span

@@ -3,7 +3,7 @@ import jwt from "jsonwebtoken";
 const data = [
   {
     email: "admin@gmail.com",
-    password: "admin1234",
+    password: "admin",
   },
 ];
 
