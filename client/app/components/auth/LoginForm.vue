@@ -10,7 +10,7 @@ export default {
   methods: {
     async signIn() {
       try {
-        const response = await fetch("/api/auth/login", {
+        const res = await $fetch("http://localhost:3001/api/auth/login", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -21,19 +21,24 @@ export default {
           }),
         });
 
-        const data = await response.json();
-        if (data.statusCode === 200) {
+        if (res.success === true) {
           // Set the token in local storage
-          localStorage.setItem("authToken", data.body.token);
+          localStorage.setItem("authToken", res.data.token);
           alert("Login is successful");
-          this.$router.push("/deposit-withdraw");
-        } else {
-          console.log("Login failed:", data.message);
-          alert("Email or password is invalid");
+          return navigateTo("/deposit-withdraw");
         }
       } catch (error) {
-        console.error("Error during login:", error);
-        alert("Error during login. Please try again.");
+        const stauts = error?.response?.status;
+        const message = error?.response?._data?.message;
+
+        if (stauts === 404) {
+          alert(message);
+        } else if (stauts === 401) {
+          alert(message);
+        } else {
+          console.error("Error during login:", error);
+          alert("Error during login. Please try again.");
+        }
       }
     },
   },
