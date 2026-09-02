@@ -56,7 +56,7 @@ const onSubmit = () => {
             <span class="text-md font-medium"
               >จำนวนเงินถอน
               {{
-                formatAmount(transactionById?.amount)
+                formatAmount(Number(transactionById?.amount))
               }}
               บาท</span
             >
