@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { ref, onMounted } from "vue";
 import { useRouter } from "vue-router";
 
@@ -6,7 +6,7 @@ import Navbar from "~/components/layouts/Navbar.vue";
 import Sidebar from "~/components/layouts/Sidebar.vue";
 
 const router = useRouter();
-const isAuthenticated = ref(null);
+const isAuthenticated = ref<any>(null);
 
 onMounted(() => {
   const token = localStorage.getItem("authToken");
@@ -18,7 +18,7 @@ onMounted(() => {
   }
 });
 
-const showSidebar = ref(false);
+const showSidebar = ref<boolean>(false);
 </script>
 
 <template>

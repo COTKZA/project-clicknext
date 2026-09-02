@@ -1,13 +1,14 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { useTransactionStore } from "~/stores/transactions";
+import { formatAmount } from "~/utils/formatAmount.js";
 
 const props = defineProps<{
   amount: number | any;
   email: string;
 }>();
 
-const isOpen = ref(false);
+const isOpen = ref<boolean>(false);
 
 const open = () => {
   isOpen.value = true;

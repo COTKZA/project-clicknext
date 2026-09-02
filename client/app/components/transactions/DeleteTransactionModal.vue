@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { useTransactionStore, type Transaction } from "~/stores/transactions";
+import { formatAmount } from "~/utils/formatAmount.js";
 
 const props = defineProps<{
   id: number | null;
@@ -8,8 +9,8 @@ const props = defineProps<{
 
 const transactionStore = useTransactionStore();
 
-const isOpen = ref(false);
-const errorMessage = ref("");
+const isOpen = ref<boolean>(false);
+const errorMessage = ref<any>("");
 const transactionById = ref<Transaction>();
 
 const open = async () => {

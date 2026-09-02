@@ -4,6 +4,7 @@ import {
 } from "~/stores/transactions.ts";
 import DeleteTransactionModal from "./transactions/DeleteTransactionModal.vue";
 import EditTransactionModa from "./transactions/EditTransactionModa.vue";
+import { formatAmount } from "~/utils/formatAmount.js";
 
 // fetch Transaction
 const transactionStore = useTransactionStore();

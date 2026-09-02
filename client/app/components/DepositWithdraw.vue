@@ -3,6 +3,8 @@ import { ref } from "vue";
 import DepositModal from "./deposit-withdraw/DepositModal.vue";
 import WithdrawModal from "./deposit-withdraw/WithdrawModal.vue";
 import { useTransactionStore } from "~/stores/transactions.ts";
+import { useAuth } from "~/composables/useAuth.js";
+import { formatAmount } from "~/utils/formatAmount.js";
 
 const { getEmail } = useAuth();
 
@@ -14,7 +16,7 @@ const email = String(getEmail());
 const DepositmodalRef = ref<any>(null);
 const WithdrawmodalRef = ref<any>(null);
 
-const amount = ref();
+const amount = ref<number | null>(null);
 
 const openDepositModal = () => {
   if (!amount.value || amount.value < 0) {
