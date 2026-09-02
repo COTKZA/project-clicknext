@@ -18,7 +18,7 @@ const signIn = async () => {
       alert("Login is successful");
       return navigateTo("/deposit-withdraw");
     }
-  } catch (error) {
+  } catch (error: any) {
     const stauts = error?.response?.status;
     const message = error?.response?._data?.message;
 
