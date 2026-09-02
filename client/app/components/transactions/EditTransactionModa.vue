@@ -68,18 +68,18 @@ const onSubmit = () => {
         <h2 class="text-lg font-bold">แก้ไขจำนวนเงินฝาก</h2>
         <form @submit.prevent="onSubmit">
           <div class="flex flex-col">
-            <span class="text-md font-medium"
+            <span class="text-sm font-medium"
               >ของวันที่ {{ transactionById?.dateTime }}</span
             >
-            <span class="text-md font-medium"
+            <span class="text-sm font-medium"
               >จากอีเมล {{ transactionById?.email }}</span
             >
           </div>
 
-          <div>
+          <div class="mt-2">
             <label
               for="amount"
-              class="block mb-2 text-sm font-medium text-gray-900"
+              class="block mb-2 text-md font-medium text-gray-900"
             >
               จำนวนเงิน *
             </label>
