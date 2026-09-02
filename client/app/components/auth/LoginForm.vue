@@ -1,47 +1,36 @@
-<script>
-export default {
-  data() {
-    return {
-      Email: "",
-      Password: "",
-    };
-  },
+<script setup lang="ts">
+const email = ref("");
+const password = ref("");
 
-  methods: {
-    async signIn() {
-      try {
-        const res = await $fetch("http://localhost:3001/api/auth/login", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            email: this.Email,
-            password: this.Password,
-          }),
-        });
-
-        if (res.success === true) {
-          // Set the token in local storage
-          localStorage.setItem("authToken", res.data.token);
-          alert("Login is successful");
-          return navigateTo("/deposit-withdraw");
-        }
-      } catch (error) {
-        const stauts = error?.response?.status;
-        const message = error?.response?._data?.message;
-
-        if (stauts === 404) {
-          alert(message);
-        } else if (stauts === 401) {
-          alert(message);
-        } else {
-          console.error("Error during login:", error);
-          alert("Error during login. Please try again.");
-        }
+const signIn = async () => {
+  try {
+    const res = await $fetch("http://localhost:3001/api/auth/login", {
+      method: "POST",
+      body:{
+        email: email.value,
+        password: password.value,
       }
-    },
-  },
+    });
+
+    if (res.success === true) {
+      // Set the token in local storage
+      localStorage.setItem("authToken", res.data.token);
+      alert("Login is successful");
+      return navigateTo("/deposit-withdraw");
+    }
+  } catch (error) {
+    const stauts = error?.response?.status;
+    const message = error?.response?._data?.message;
+
+    if (stauts === 404) {
+      alert(message);
+    } else if (stauts === 401) {
+      alert(message);
+    } else {
+      console.error("Error during login:", error);
+      alert("Error during login. Please try again.");
+    }
+  }
 };
 </script>
 
@@ -60,7 +49,7 @@ export default {
             type="email"
             name="email"
             id="email"
-            v-model="Email"
+            v-model="email"
             class="bg-white border-2 border-gray-300 text-gray-900 focus:outline-none rounded-lg focus:ring-gray-200 focus:border-gray-400 block w-full p-2"
             placeholder="Email"
             required
@@ -77,7 +66,7 @@ export default {
             type="password"
             name="password"
             id="password"
-            v-model="Password"
+            v-model="password"
             class="bg-white border-2 border-gray-300 text-gray-900 focus:outline-none rounded-lg focus:ring-gray-200 focus:border-gray-400 block w-full p-2"
             placeholder="Password"
             required
