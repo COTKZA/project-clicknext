@@ -31,7 +31,7 @@ defineExpose({ open, close });
 
 // validate amount
 const handleInputAmount = () => {
-  const value = parseFloat(amount.value);
+  const value = Number(amount.value);
 
   if (value > 100000) {
     alert("โดยสามารถกรอกได้เฉพาะตัวเลข ไม่เกิน 0-100,000 บาท");

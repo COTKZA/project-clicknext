@@ -36,7 +36,7 @@ const openWithdrawModal = () => {
 
 // validate amount
 const handleInputAmount = (e: any) => {
-  const value = parseFloat(e.target.value);
+  const value = Number(e.target.value);
 
   if (value > 100000) {
     alert("โดยสามารถกรอกได้เฉพาะตัวเลข ไม่เกิน 0-100,000 บาท");
