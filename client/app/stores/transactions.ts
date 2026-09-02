@@ -111,7 +111,7 @@ export const useTransactionStore = defineStore("transactions", {
       const availableBalance = currentBalance + oldAmount;
 
       if (transaction.status === "withdraw" && amount > availableBalance) {
-        throw new Error("ยอกเงินคงเหลือไม่เพียงพอ");
+        throw new Error("ยอดเงินคงเหลือไม่เพียงพอ");
       }
 
       // update
