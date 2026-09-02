@@ -3,8 +3,6 @@ import { Menu } from "@lucide/vue";
 
 const emit = defineEmits(["openSideBar"]);
 
-const router = useRouter();
-
 const logout = () => {
   localStorage.removeItem("authToken");
 
