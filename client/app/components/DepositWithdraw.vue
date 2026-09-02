@@ -3,8 +3,8 @@ import { ref } from "vue";
 import DepositModal from "./deposit-withdraw/DepositModal.vue";
 import WithdrawModal from "./deposit-withdraw/WithdrawModal.vue";
 import { useTransactionStore } from "~/stores/transactions.ts";
-import { useAuth } from "~/composables/useAuth.js";
-import { formatAmount } from "~/utils/formatAmount.js";
+import { useAuth } from "~/composables/useAuth.ts";
+import { formatAmount } from "~/utils/formatAmount.ts";
 
 const { getEmail } = useAuth();
 

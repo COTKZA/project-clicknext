@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { useTransactionStore } from "~/stores/transactions";
-import { formatAmount } from "~/utils/formatAmount.js";
+import { formatAmount } from "~/utils/formatAmount.ts";
 
 const props = defineProps<{
   amount: number | any;

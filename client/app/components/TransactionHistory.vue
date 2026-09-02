@@ -3,8 +3,8 @@ import {
   useTransactionStore,
 } from "~/stores/transactions.ts";
 import DeleteTransactionModal from "./transactions/DeleteTransactionModal.vue";
-import EditTransactionModa from "./transactions/EditTransactionModa.vue";
-import { formatAmount } from "~/utils/formatAmount.js";
+import EditTransactionModal from "./transactions/EditTransactionModal.vue";
+import { formatAmount } from "~/utils/formatAmount.ts";
 
 // fetch Transaction
 const transactionStore = useTransactionStore();
@@ -114,7 +114,7 @@ const openDeleteTransactionModal = async (id: number) => {
     </div>
   </div>
 
-  <EditTransactionModa ref="editModalRef" :id="transactionId" />
+  <EditTransactionModal ref="editModalRef" :id="transactionId" />
 
   <DeleteTransactionModal ref="deleteModalRef" :id="transactionId" />
 </template>

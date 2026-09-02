@@ -1,7 +1,7 @@
 import { jwtDecode } from "jwt-decode";
 
 export default defineNuxtRouteMiddleware((to) => {
-  if (!process.client) return;
+  if (import.meta.server) return;
 
   const token = localStorage.getItem("authToken");
 
@@ -10,7 +10,7 @@ export default defineNuxtRouteMiddleware((to) => {
       const decodedToken = jwtDecode(token);
       const currentTime = Date.now() / 1000;
 
-      if (decodedToken.exp < currentTime) {
+      if (decodedToken.exp && decodedToken.exp < currentTime) {
         localStorage.removeItem("authToken");
         return navigateTo("/auth/login");
       }

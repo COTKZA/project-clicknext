@@ -78,7 +78,7 @@ const server = http.createServer((req, res) => {
           }),
         );
       } catch (error) {
-        res.writeHead(500, { "content-type": "text/plane" });
+        res.writeHead(500, { "content-type": "text/plain" });
         return res.end("server Error");
       }
     });

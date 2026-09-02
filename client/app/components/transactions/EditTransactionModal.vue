@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { useTransactionStore, type Transaction } from "~/stores/transactions";
-import { formatAmount } from "~/utils/formatAmount.js";
 
 const props = defineProps<{
   id: number | null;
