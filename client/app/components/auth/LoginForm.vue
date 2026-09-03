@@ -1,10 +1,12 @@
 <script setup lang="ts">
+const config = useRuntimeConfig();
+
 const email = ref<string>("");
 const password = ref<string>("");
 
 const signIn = async () => {
   try {
-    const res: any = await $fetch("http://localhost:3001/api/auth/login", {
+    const res: any = await $fetch(`${config.public.apiBaseUrl}/auth/login`, {
       method: "POST",
       body:{
         email: email.value,
